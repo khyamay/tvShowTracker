@@ -1,5 +1,5 @@
 angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'mgcrea.ngStrap'])
-.config(['$locationProvider', function($locationProvider){
+.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider){
 	$locationProvider.html5Mode(true);
 	$routeProvider
 		  .when('/', {
