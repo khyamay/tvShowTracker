@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html np-app="MyApp">
+	<head>
+		<base href="/">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA Compatible" content="IE=edge">
+		<meta name="vewport" content="width=device-width, initial-scale=1">
+		<title>ShowTracker</title>
+		<link rel="icon" href="favicon.png">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	</head>
+<body>
+	<div class="navbar navbar-default navbar-static-top" role="navigation" bs-navbar>
+		<div class="navbar-header">
+			<a href="/" class="navbar-brand">
+				<span class="glyphicon glyphicon-flim"></span>
+				Show<strong>Tracker</strong>
+			</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li data-match-route="/$"><a href="/">Home</a></li>
+			<li data-match-route="/add"><a href="/add"></a></li>
+		</ul>
+		<ul class="nav navbar-nav pull-right" ng-if="!currentUser"> 
+			<li data-match-route="/login"><a href="/login">Login</a></li>
+			<li data-match-route="/signup"><a href="/signup">Sign up</a></li>
+		</ul>
+		<ul class="nav navbar-nav pull-right" ng-if="currentUser"> 
+			<li class="navbar-text" ng-bind="currentUser.email"></li>
+			<li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+		</ul>
+	</div>
+	<div ng-view></div>
+
+<script src="vendor/angular.js"></script>
+<script src="vendor/angular-strap.js"></script>
+<script src="vendor/angular-strap.tpl.js"></script>
+<script src="vendor/angular-messages.js"></script>
+<script src="vendor/angular-resource.js"></script>
+<script src="vendor/angular-route.js"></script>
+<script src="vendor/angular-cookies.js"></script>
+<script src="vendor/moment.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
