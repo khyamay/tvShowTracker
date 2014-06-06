@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html np-app="MyApp">
+<html ng-app="MyApp">
 	<head>
 		<base href="/">
 		<meta charset="utf-8">
@@ -13,7 +13,7 @@
 	<div class="navbar navbar-default navbar-static-top" role="navigation" bs-navbar>
 		<div class="navbar-header">
 			<a href="/" class="navbar-brand">
-				<span class="glyphicon glyphicon-flim"></span>
+				<span class="glyphicon glyphicon-film"></span>
 				Show<strong>Tracker</strong>
 			</a>
 		</div>
@@ -30,6 +30,7 @@
 			<li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
 		</ul>
 	</div>
+
 	<div ng-view></div>
 
 <script src="vendor/angular.js"></script>
@@ -40,6 +41,10 @@
 <script src="vendor/angular-route.js"></script>
 <script src="vendor/angular-cookies.js"></script>
 <script src="vendor/moment.min.js"></script>
+
 <script src="app.js"></script>
+<script src="controllers/main.js"></script>
+<script src="services/show.js"></script>
+
 </body>
 </html>
