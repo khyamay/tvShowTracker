@@ -1,2 +1,1 @@
-##Tv Show Tracker
-# for learning Angular.js
+##Tv Show Tracker for learning Angular.js
