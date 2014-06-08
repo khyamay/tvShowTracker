@@ -2,9 +2,6 @@
   "name": "application-name",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
   "dependencies": {
     "express": "3.4.8",
     "jade": "*",
@@ -16,7 +13,11 @@
     "xml2js": "~0.4.4",
     "passport-local": "~1.0.0",
     "passport": "~0.2.0",
-    "express-session": "~1.2.1"
+    "express-session": "~1.2.1",
+    "sugar": "~1.4.1",
+    "nodemailer": "~0.6.5",
+    "agenda": "~0.6.14",
+    "method-override": "~2.0.2"
   },
   "devDependencies": {
     "gulp-plumber": "~0.6.2",
