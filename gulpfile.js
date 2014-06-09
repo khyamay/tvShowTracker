@@ -11,16 +11,16 @@ gulp.task('sass', function(){
 	gulp.src('public/stylesheets/style.scss')
 	.pipe(plumber())
 	.pipe(sass())
-	.pipe(uncss({
-		html: [
-		'public/index.html',
-		'public/views/add.html',
-		'public/views/detail.html',
-		'public/views/home.html',
-		'public/views/login.html',
-		'public/views/signup.html'
-		]
-	}))
+	// .pipe(uncss({
+	// 	html: [
+	// 	'public/index.html',
+	// 	'public/views/add.html',
+	// 	'public/views/detail.html',
+	// 	'public/views/home.html',
+	// 	'public/views/login.html',
+	// 	'public/views/signup.html'
+	// 	]
+	// }))
 	.pipe(csso())
 	.pipe(gulp.dest('public/stylesheets'));
 });
