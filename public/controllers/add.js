@@ -10,6 +10,6 @@ angular.module('MyApp')
             type: 'success',
             duration: 3
           });
-        })
+        });
     };
   }]);
