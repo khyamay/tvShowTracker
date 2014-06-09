@@ -166,6 +166,18 @@ app.get('/api/shows/:id', function(req, res, next) {
   });
 });
 
+// app.delete('/api/shows/:id', function(req, res, next){
+//   Show.findById(req.params.id, function(err, show){
+//     if(err) return next(err);
+//     var index = show.indexOf(req.params.id);
+//     show.splice(index, 1);
+//     show.save(function(err){
+//       if(err) return next(err);
+//       res.send(200);
+//     })
+//   })
+// });
+
 app.post('/api/subscribe', ensureAuthenticated, function(req, res, next) {
   Show.findById(req.body.showId, function(err, show) {
     if (err) return next(err);
@@ -205,6 +217,9 @@ app.post('/api/shows', function(req, res, next) {
       request.get('http://thetvdb.com/api/GetSeries.php?seriesname=' + seriesName, function(error, response, body) {
         if (error) return next(error);
         parser.parseString(body, function(err, result) {
+          if(!result.data.series){
+            return res.send(404, {message: seriesName + ' was not found. '});
+          }
           var seriesId = result.data.series.seriesid || result.data.series[0].seriesid;
           callback(err, seriesId);
         });
@@ -261,10 +276,9 @@ app.post('/api/shows', function(req, res, next) {
         }
         return next(err);
       }
-      res.send(200);
       var alertDate = Date.create('Next ' + show.airsDayOfWeek + ' at ' + show.airsTime).rewind({ hour: 2});
       agenda.schedule(alertDate, 'send email alert', show.name).repeatEvery('1 week');
-      
+      res.send(200);
     });
   });
 });
