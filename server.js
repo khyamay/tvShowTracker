@@ -255,10 +255,16 @@ app.post('/api/shows', function(req, res, next) {
   ], function(err, show) {
     if (err) return next(err);
     show.save(function(err) {
-      if (err) return next(err);
+      if (err) {
+        if(err.code == 11000){
+          return res.send(409, { message: show.name + ' already exists.'});
+        }
+        return next(err);
+      }
+      res.send(200);
       var alertDate = Date.create('Next ' + show.airsDayOfWeek + ' at ' + show.airsTime).rewind({ hour: 2});
       agenda.schedule(alertDate, 'send email alert', show.name).repeatEvery('1 week');
-      res.send(200);
+      
     });
   });
 });
