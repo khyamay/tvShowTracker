@@ -18,7 +18,7 @@
     "nodemailer": "~0.6.5",
     "agenda": "~0.6.14",
     "method-override": "~2.0.2",
-    "compression": "~1.0.6"
+    "compression": "~1.0.8"
   },
   "devDependencies": {
     "gulp-plumber": "~0.6.2",
